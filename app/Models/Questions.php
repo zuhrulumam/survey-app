@@ -91,4 +91,8 @@ class Questions extends Model
     public static $rules = [
         
     ];
+    
+    public function getCategory() {
+        return $this->belongsTo("App\Models\Categories", "question_category_id", 'category_id');
+    }
 }

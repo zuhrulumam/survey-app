@@ -13,7 +13,7 @@ and open the template in the editor.
     margin: 10px 0 20px 0;
     display: block;
     float: left;
-    
+
 }
 
 .judul h1{
@@ -45,4 +45,81 @@ and open the template in the editor.
 }
 .slider.slider-horizontal .slider-tick-label-container .slider-tick-label{
     width: 20%;
+    margin-left: -8px;
+}
+
+.degrees{
+    margin-bottom: 30px;
+    display: block;
+}
+
+.degree-left h2{
+    font-size: 2em;
+    color:#fff;
+    text-align:center;
+}
+
+.degree-left p{
+    font-size: 1.3em;
+    color:#fff;
+    text-align: justify;
+    padding: 2%;
+}
+
+.degree-right a{
+    font-size: 1.5em;
+    color:#fff;
+    text-align:center;
+    margin: 0 auto;
+    display: block;
+    min-height: 0px;
+    height: auto;
+}
+.degree-right{
+    word-wrap: break-word;
+}
+
+.radio-inline{
+    margin-left: 5%;
+    font-size: 1.2em;
+}
+
+.questions{
+    font-size: 1.5em;
+    display: block;
+    width: 100%;
+}
+.qNumber{
+    float: left;
+    width: 4.5%;
+}
+.qText{
+    float: left;
+    position: relative;
+    width: 95.5%;
+}
+
+.slider.slider-horizontal .slider-tick-label-container .slider-tick-label:first-child { 
+    margin-left: 20px;
+}
+.slider.slider-horizontal .slider-tick-label-container .slider-tick-label:last-child { 
+    margin-left: -13px;
+}
+
+@media (min-width: 1200px){
+    .container {
+        width: 1200px;
+    }
+}
+
+.steps .catText{
+    display: inline-block;
+}
+
+.vertical-error .error{
+    text-align: center;
+    padding: 15% 0 0 0;
+}
+.horizontal-error{
+    text-align: center;
 }

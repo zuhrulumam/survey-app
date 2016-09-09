@@ -47,39 +47,142 @@
 
                 </div>
 
+                <div class="degrees">
+                    <div class="degree-left">
+                        <h2>E-learning Universitas Sebelas Maret</h2>
+                        <p> 
+                            E-Learning UNS merupakan media pembelajaran online di Universitas Sebelas Maret Surakarta yang dikembangkan oleh Lembaga Pengembangan dan Penjaminan Mutu Pendidikan UNS. E-learning UNS memerlukan beberapa pengembagan agar dapat dinilai sukses oleh para penggunanya. Oleh karena itu survey ini diperuntukan kepada dosen maupun mahasiswa Universitas Sebelas Maret guna mengetahui faktor-faktor yang harus dikembangkan oleh Universitas Sebelas Maret agar E-learning lebih sukses daripada yang sekarang
+                        <p>
+                    </div>
+                    <div class="degree-right">
+                        <a href="http://elearning.uns.ac.id/" target="_blank">Elearning Universitas Sebelas Maret Surakarta (http://elearning.uns.ac.id/)</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
 
                 <div class="form-content">
-                    <div class="row">
-                        <div class="col-md-12 map-content-left">
-                            <form id="example-advanced-form" method="POST">
-                                {!! csrf_field() !!}
-                                <?php
-                                $index = 0;
-                                ?>
-                                @for($i = 0; $i< $totalPage; $i++)
-                                <h3>Iframe Step <span class="glyphicon glyphicon-ok-circle"> </span></h3>
-                                <section>
-                                    @for($j = 0; $j < $perPage; $j++)
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1"><?php echo ($questions[$index]['question_text']); ?></label>
-                                        <input id="ex19" name="kolom3" type="text"
-                                               data-provide="slider"
+                    <form id="example-advanced-form" method="POST">
+                        {!! csrf_field() !!}
+                        <?php
+                        $index = 0;
+                        $name = "";
+                        $input = [
+                            0 => '<input id="ex19" name="' . $name . '"  type="text" data-provide="slider"
                                                data-slider-ticks="[1, 2, 3, 4, 5]"
-                                               data-slider-ticks-labels='["Sangat Tidak Penting", "Tidak Penting", "Normal", "Penting", "Sangat Penting"]'
+                                               data-slider-ticks-labels=\'["Sangat Tidak Setuju", "Tidak Setuju", "Normal", "Setuju", "Sangat Setuju"]\'
                                                data-slider-min="1"
                                                data-slider-max="5"
                                                data-slider-step="1"
-                                               data-slider-value="3" />
-                                    </div>
-                                    <?php $index++; ?>
-                                    @endfor
-                                </section>
+                                               data-slider-value="3"/> ',
+                            1 => 'type="radio" value="male" checked'
+                        ];
+                        ?>
+                        @for($i = 0; $i< $totalPage; $i++)
+                        <h3 class="text-nowrap">
+                            <div class="catText">
 
-                                @endfor
-                            </form>
-                        </div>
-                    </div>
+                                <?php echo $categories[$i]->category_name; ?>
+
+                            </div>                            
+                        </h3>
+                        <section>
+                            @for($j = 0; $j < $perPage; $j++)
+                            <?php
+                            $random = rand(0, 2);
+                            ?>
+                            <div class="form-group">
+
+                                <label class="questions">
+                                    <div class="qNumber">
+                                        <?php echo ($index + 1) . '. ' ?>
+                                    </div>
+                                    <div class="qText ">
+                                        <?php echo ($questions[$index]['question_text']); ?>
+                                    </div>                          
+
+                                </label>
+                                <?php
+                                $name = "pertanyaan_" . $index;
+                                if ($random == 0) {
+                                    echo '<input id="ex19" name="' . $name . '"  type="text" data-provide="slider"
+                                               data-slider-ticks="[1, 2, 3, 4, 5]"
+                                               data-slider-ticks-labels=\'["Sangat Tidak Setuju", "Tidak Setuju", "Normal", "Setuju", "Sangat Setuju"]\'
+                                               data-slider-min="1"
+                                               data-slider-max="5"
+                                               data-slider-step="1"
+                                               data-slider-value="3"/> ';
+                                } else if ($random == 1) {
+                                    $return = <<<EOF
+<div class="col-md-6">                                            
+    <div class="radio-vertical">  
+    <label class="radio-inline">
+      <input type="radio" name=$name value="1" required> Sangat Tidak Setuju
+    </label>
+    </div>
+    <div class="radio-vertical">
+    <label class="radio-inline">
+      <input type="radio" name=$name value="2"> Tidak Setuju
+    </label>
+    </div>
+    <div class="radio-vertical">
+    <label class="radio-inline">
+      <input type="radio" name=$name value="3"> Normal
+    </label>
+    </div>
+    <div class="radio-vertical">
+    <label class="radio-inline">
+      <input type="radio" name=$name  value="4"> Setuju
+    </label>
+    </div>
+    <div class="radio-vertical">
+    <label class="radio-inline">
+      <input type="radio" name=$name  value="5"> Sangat Setuju
+    </label>
+    </div>
+</div>
+<div class="col-md-6 vertical-error"> 
+</div>                                            
+EOF;
+                                    echo $return;
+                                } else if ($random == 2) {
+                                    $return = <<<EOF
+<div class="col-md-12">                                             
+    <label class="radio-inline">
+      <input type="radio" name=$name value="1" required> Sangat Tidak Setuju
+    </label>
+
+    <label class="radio-inline">
+      <input type="radio" name=$name value="2"> Tidak Setuju
+    </label>
+
+    <label class="radio-inline">
+      <input type="radio" name=$name value="3"> Normal
+    </label>
+
+    <label class="radio-inline">
+      <input type="radio" name=$name  value="4"> Setuju
+    </label>
+
+    <label class="radio-inline">
+      <input type="radio" name=$name  value="5"> Sangat Setuju
+    </label>
+</div>                                              
+<div class="col-md-12 horizontal-error"> 
+</div>                                            
+EOF;
+                                    echo $return;
+                                }
+                                ?>
+                            </div>
+                            <?php $index++; ?>
+                            @endfor
+                        </section>
+
+                        @endfor
+                    </form>
                 </div>
+
             </div>
         </div>
 
