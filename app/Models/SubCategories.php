@@ -82,4 +82,8 @@ class SubCategories extends Model
     public static $rules = [
         
     ];
+    
+    public function getCategory() {
+        return $this->belongsTo("App\Models\Categories", "rel_category_id", 'category_id');
+    }
 }

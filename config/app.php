@@ -151,6 +151,9 @@ return [
         InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         \InfyOm\GeneratorBuilder\GeneratorBuilderServiceProvider::class,
+        
+        //saml
+       Aacotroneo\Saml2\Saml2ServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------
@@ -197,6 +200,9 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Flash' => Laracasts\Flash\Flash::class,
-        'Datatables'=>Yajra\Datatables\Facades\Datatables::class
+        'Datatables'=>Yajra\Datatables\Facades\Datatables::class,
+        
+        //saml
+        'Saml2'     => Aacotroneo\Saml2\Facades\Saml2Auth::class,
     ],
 ];

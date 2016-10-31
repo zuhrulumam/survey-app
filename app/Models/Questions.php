@@ -92,7 +92,7 @@ class Questions extends Model
         
     ];
     
-    public function getCategory() {
-        return $this->belongsTo("App\Models\Categories", "question_category_id", 'category_id');
-    }
+//    public function getCategory() {
+//        return $this->belongsTo("App\Models\Categories", "question_category_id", 'category_id');
+//    }
 }

@@ -62,7 +62,7 @@ and open the template in the editor.
     padding: 0 10px 0 0;
     color: green;
     margin-top: -1%;
-    /*vertical-align: middle;*/
+    display: block;
 }
 
 /*
@@ -277,7 +277,7 @@ and open the template in the editor.
 {
     display: inline;
     float: right;
-    margin: 2% 2.5%;
+    margin: 2% 0 1% 0;
     width: 95%;
 }
 
@@ -285,7 +285,7 @@ and open the template in the editor.
 {
     display: inline-block;
     text-align: right;
-    width: 30%;
+    width: 100%;
 }
 
 .wizard > .actions > ul > li

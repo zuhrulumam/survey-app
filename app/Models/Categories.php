@@ -74,4 +74,8 @@ class Categories extends Model
     public static $rules = [
         
     ];
+    
+//    public function getQuestions() {
+//        return $this->hasMany("App\Models\Questions");
+//    }
 }

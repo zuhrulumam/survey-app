@@ -29,6 +29,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    protected $loginPath = 'http://internet.uns.ac.id';
 
     /**
      * Create a new authentication controller instance.

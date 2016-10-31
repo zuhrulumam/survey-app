@@ -10,7 +10,7 @@ and open the template in the editor.
 
 .header{
     width: 100%;
-    margin: 10px 0 20px 0;
+    margin: 10px 0 10px 0;
     display: block;
     float: left;
 
@@ -19,7 +19,7 @@ and open the template in the editor.
 .judul h1{
     margin: 35px 0;
     color:#eb5424;
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: center;
     font-weight:600;
     font-family: 'Baloo Paaji', cursive;
@@ -48,25 +48,37 @@ and open the template in the editor.
     margin-left: -8px;
 }
 
-.degrees{
+.penjelasan{
     margin-bottom: 30px;
     display: block;
 }
 
-.degree-left h2{
+.penjelasan-right{
+    float:left;
+    background:#232323;
+    /*min-height: 210px;*/
+    padding: 50px 50px 0 50px;
+}
+.penjelasan-left{
+    float: left;
+    background: #076D90;
+    padding: 19px 0 0 0;
+    /*min-height: 210px;*/
+}
+.penjelasan-left h2{
     font-size: 2em;
     color:#fff;
     text-align:center;
 }
 
-.degree-left p{
+.penjelasan-left p{
     font-size: 1.3em;
     color:#fff;
     text-align: justify;
     padding: 2%;
 }
 
-.degree-right a{
+.penjelasan-right a{
     font-size: 1.5em;
     color:#fff;
     text-align:center;
@@ -75,7 +87,7 @@ and open the template in the editor.
     min-height: 0px;
     height: auto;
 }
-.degree-right{
+.penjelasan-right{
     word-wrap: break-word;
 }
 
@@ -101,6 +113,7 @@ and open the template in the editor.
 
 .slider.slider-horizontal .slider-tick-label-container .slider-tick-label:first-child { 
     margin-left: 20px;
+    width: 187.5px;
 }
 .slider.slider-horizontal .slider-tick-label-container .slider-tick-label:last-child { 
     margin-left: -13px;
@@ -123,3 +136,77 @@ and open the template in the editor.
 .horizontal-error{
     text-align: center;
 }
+
+.logo-uns{
+    text-align: center;
+    margin: 35px 0;
+}
+
+.row {
+    display: table;
+}
+
+.row [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.radio-vertical{
+    margin-left: 5%;
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 679px) {
+
+    .questions
+    {
+        font-size: 1em;
+    }
+
+    .radio-inline{
+        font-size: 0.8em;
+    }
+
+    .steps .catText {
+        font-size: 0.7em;
+    }
+
+    .steps i.glyphicon {
+        font-size: 0.7em;
+        display: inline-block;
+    }
+
+    .judul h1{
+        font-size: 2em;
+    }
+
+    .penjelasan-left h2{
+        font-size: 1.2em;
+    }
+
+    .penjelasan-left p{
+        font-size: 0.8em;        
+    }
+
+    .penjelasan-right a{
+        font-size: 1em;        
+    }
+
+    .slider.slider-horizontal .slider-tick-label-container .slider-tick-label{
+        font-size: 0.8em;
+    }
+
+    .wizard > .actions > ul{
+        width: 100%;
+    }
+
+}
+
+.success{    
+    min-height: 100vh;
+    background: #f1f1f1;
+    display: block;
+}
+
+

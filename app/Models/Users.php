@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * @SWG\Definition(
@@ -27,22 +28,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *      )
  * )
  */
-class Users extends Model
-{
+class Users extends Authenticatable {
+
     use SoftDeletes;
 
     public $table = 'users';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
-
     public $fillable = [
         'name',
-        'email'
+        'email',
+        'identityNumber',
+        'keterangan'
     ];
 
     /**
@@ -53,7 +53,9 @@ class Users extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
-        'email' => 'string'
+        'email' => 'string',
+        'identityNumber' => 'string',
+        'keterangan' => 'string'
     ];
 
     /**
@@ -62,6 +64,6 @@ class Users extends Model
      * @var array
      */
     public static $rules = [
-        
     ];
+
 }
