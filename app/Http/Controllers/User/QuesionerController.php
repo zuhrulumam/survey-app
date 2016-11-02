@@ -11,17 +11,20 @@ use App\Models\Users;
 use Mail;
 use Request;
 
+use App\Models\DataDosen;
+
 class QuesionerController extends AppBaseController {
 
     public function index() {
         return view("home");
     }
 
-    public function checkUser($email) {
+    public function checkUser($email, $nip) {
         if (strpos("@guest.uns.ac.id", $email) !== false) {
             return json_encode(['result' => false]);
         }
 
+        $dataDosen = DataDosen::where("NIP", $nip)->first();
         $user = Users::where("email", $email)->first();
         if ($user) {
             $keterangan = json_decode($user->keterangan);
@@ -29,8 +32,10 @@ class QuesionerController extends AppBaseController {
                 return json_encode(['result' => false]);
             }
             return json_encode(['result' => true]);
-        } else {
+        } elseif(($dataDosen->ID_JENIS_STAF == 1) || ($dataDosen->ID_JENIS_STAF == 3)) {            
             return json_encode(['result' => true]);
+        } else {
+            return json_encode(['result' => false]);
         }
     }
    
@@ -113,11 +118,11 @@ class QuesionerController extends AppBaseController {
                 'answered' => $countAnswered
             ]);
             $user->save();
-            Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
-                $m->from('zuhrulumam@student.uns.ac.id', 'Survey E-learning');
-
-                $m->to($user->email, $user->name)->subject('Terimakasih Atas Partisipasinya');
-            });
+//            Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
+//                $m->from('zuhrulumam@student.uns.ac.id', 'Survey E-learning');
+//
+//                $m->to($user->email, $user->name)->subject('Terimakasih Atas Partisipasinya');
+//            });
         }
 
 
@@ -127,17 +132,28 @@ class QuesionerController extends AppBaseController {
         ]);
     }
 
-    public function tryPost() {
-        $dataJawaban = [];
-        $data = [
-            "rel_user_id" => 1,
-            "rel_question_id" => 1,
-            "rel_answer" => 3
-        ];
-        array_push($dataJawaban, $data);
-
-
-        UserQuestions::insert($dataJawaban); //cari beda antara insert dengan save
+    public function tryPost($email, $nip) {
+        $dataDosen = DataDosen::where("NIP", $nip)->first();
+        $user = Users::where("email", $email)->first();
+        if ($user) {
+            $keterangan = json_decode($user->keterangan);
+            if ($keterangan->answered == 2) {
+                return json_encode(['result' => false]);
+            }
+            return json_encode(['result' => true]);
+        } elseif(($dataDosen->ID_JENIS_STAF == 1) || ($dataDosen->ID_JENIS_STAF == 3)) {            
+            return json_encode(['result' => true]);
+        } else {
+            return json_encode(['result' => false]);
+        }
+        
+//        $a = 1; $b = 2;
+//        
+//        if(($a ==1) && ($b ==3)){
+//            echo 'salah';
+//        } elseif($a == 1 || $b== 2 ) {
+//            echo 'benar';
+//        }
     }
 
 }

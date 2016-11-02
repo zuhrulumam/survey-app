@@ -16,11 +16,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('/', 'User\QuesionerController@postQuestions');
 });
 
-Route::get('/checkUser/{email}', 'User\QuesionerController@checkUser');
+Route::get('/checkUser/{email}/{nip}', 'User\QuesionerController@checkUser');
 
 Route::get('/home', 'User\QuesionerController@index');
 
-Route::get('/try', 'User\QuesionerController@tryPost');
+//Route::get('/try/{email}/{nip}', 'User\QuesionerController@tryPost');
 
 /*
   |--------------------------------------------------------------------------
@@ -34,29 +34,32 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
     });
 });
 
-
-Route::get('login', 'Auth\AuthController@getLogin');
-Route::post('login', 'Auth\AuthController@postLogin');
-Route::get('logout', 'Auth\AuthController@logout');
-
-// Registration Routes...
-Route::get('register', 'Auth\AuthController@getRegister');
-Route::post('register', 'Auth\AuthController@postRegister');
-
-// Password Reset Routes...
-Route::get('password/reset', 'Auth\PasswordController@getEmail');
-Route::post('password/email', 'Auth\PasswordController@postEmail');
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', 'Auth\PasswordController@postReset');
-
-//Route::get('/home', 'HomeController@index');
-
-Route::resource('questions', 'QuestionsController');
-
-Route::resource('userQuestions', 'UserQuestionsController');
-
-Route::resource('categories', 'CategoriesController');
-
-Route::resource('subCategories', 'SubCategoriesController');
-
-Route::resource('users', 'UsersController');
+//
+//Route::get('login', 'Auth\AuthController@getLogin');
+//Route::post('login', 'Auth\AuthController@postLogin');
+//Route::get('logout', 'Auth\AuthController@logout');
+//
+//// Registration Routes...
+//Route::get('register', 'Auth\AuthController@getRegister');
+//Route::post('register', 'Auth\AuthController@postRegister');
+//
+//// Password Reset Routes...
+//Route::get('password/reset', 'Auth\PasswordController@getEmail');
+//Route::post('password/email', 'Auth\PasswordController@postEmail');
+//Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+//Route::post('password/reset', 'Auth\PasswordController@postReset');
+//
+////Route::get('/home', 'HomeController@index');
+//
+//Route::resource('questions', 'QuestionsController');
+//
+//Route::resource('userQuestions', 'UserQuestionsController');
+//
+//Route::resource('categories', 'CategoriesController');
+//
+//Route::resource('subCategories', 'SubCategoriesController');
+//
+//Route::resource('users', 'UsersController');
+//
+//
+//Route::resource('dataDosens', 'DataDosenController');
