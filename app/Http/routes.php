@@ -20,7 +20,7 @@ Route::get('/checkUser/{email}/{nip}', 'User\QuesionerController@checkUser');
 
 Route::get('/home', 'User\QuesionerController@index');
 
-//Route::get('/try/{email}/{nip}', 'User\QuesionerController@tryPost');
+Route::get('/try/{email}/{nip}', 'User\QuesionerController@tryPost');
 
 /*
   |--------------------------------------------------------------------------

@@ -10,7 +10,6 @@ use App\Http\Requests\UserSendAnswers;
 use App\Models\Users;
 use Mail;
 use Request;
-
 use App\Models\DataDosen;
 
 class QuesionerController extends AppBaseController {
@@ -32,13 +31,16 @@ class QuesionerController extends AppBaseController {
                 return json_encode(['result' => false]);
             }
             return json_encode(['result' => true]);
-        } elseif(($dataDosen->ID_JENIS_STAF == 1) || ($dataDosen->ID_JENIS_STAF == 3)) {            
-            return json_encode(['result' => true]);
+        } elseif ($dataDosen) {
+            if (($dataDosen->ID_JENIS_STAF == 1) || ($dataDosen->ID_JENIS_STAF == 3)) {
+                return json_encode(['result' => true]);
+            }
+             return json_encode(['result' => false]);
         } else {
-            return json_encode(['result' => false]);
+            return json_encode(['result' => true]);
         }
     }
-   
+
     public function getQuestions() {
         $user = \Auth::user();
 
@@ -141,12 +143,18 @@ class QuesionerController extends AppBaseController {
                 return json_encode(['result' => false]);
             }
             return json_encode(['result' => true]);
-        } elseif(($dataDosen->ID_JENIS_STAF == 1) || ($dataDosen->ID_JENIS_STAF == 3)) {            
-            return json_encode(['result' => true]);
+        } elseif ($dataDosen) {
+            if (($dataDosen->ID_JENIS_STAF == 1) || ($dataDosen->ID_JENIS_STAF == 3)) {
+                return json_encode(['result' => true]);
+            }
+             return json_encode(['result' => false]);
         } else {
-            return json_encode(['result' => false]);
+            return json_encode(['result' => true]);
         }
-        
+
+
+
+
 //        $a = 1; $b = 2;
 //        
 //        if(($a ==1) && ($b ==3)){
