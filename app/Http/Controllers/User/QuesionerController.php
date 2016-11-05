@@ -58,8 +58,8 @@ class QuesionerController extends AppBaseController {
                 $flag = 0;
                 $generalQuestion = "Apakah Anda pernah mengakses E-learning Universitas Sebelas Maret Surakarta (elearning.uns.ac.id) ?";
             } elseif ($countAnswered == 1) {
-                $questions = Questions::whereIn("question_category_id", [3, 5])->orderBy('question_id', 'ASC')->get();
-                $categories = Categories::whereIn("category_id", [3, 5])->get();
+                $questions = Questions::whereIn("question_category_id", [4, 5])->orderBy('question_id', 'ASC')->get();
+                $categories = Categories::whereIn("category_id", [4, 5])->get();
                 $flag = 1;
             }
         } elseif ($type == 'mahasiswa') {
