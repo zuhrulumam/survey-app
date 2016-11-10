@@ -63,3 +63,5 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
 //
 //
 //Route::resource('dataDosens', 'DataDosenController');
+
+Route::resource('dataDosens', 'DataDosenController');

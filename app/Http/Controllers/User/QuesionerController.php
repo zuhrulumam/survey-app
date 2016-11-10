@@ -37,7 +37,7 @@ class QuesionerController extends AppBaseController {
             }
              return json_encode(['result' => false]);
         } else {
-            return json_encode(['result' => true]);
+            return json_encode(['result' => false]);
         }
     }
 

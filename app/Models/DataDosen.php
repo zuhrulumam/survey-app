@@ -49,25 +49,28 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *      )
  * )
  */
-class DataDosen extends Model {
-
+class DataDosen extends Model
+{
     use SoftDeletes;
 
     public $table = 'data_dosen';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+
     protected $dates = ['deleted_at'];
-    protected $primaryKey = 'ID_STATUS_HENTI';
+
+    protected $primaryKey = 'NIP';
+
     public $fillable = [
         'ID_STATUS_HENTI',
         'Nama',
-        'NIP',
         'ID_UNIT',
         'ID_SUB_UNIT',
         'ID_JENIS_STAF',
-        'FAKULTAS'
+        'FAKULTAS',
+        'deleted_at'
     ];
 
     /**
@@ -82,7 +85,8 @@ class DataDosen extends Model {
         'ID_UNIT' => 'integer',
         'ID_SUB_UNIT' => 'integer',
         'ID_JENIS_STAF' => 'string',
-        'FAKULTAS' => 'string'
+        'FAKULTAS' => 'string',
+        'deleted_at' => 'datetime'
     ];
 
     /**
@@ -91,6 +95,6 @@ class DataDosen extends Model {
      * @var array
      */
     public static $rules = [
+        
     ];
-
 }

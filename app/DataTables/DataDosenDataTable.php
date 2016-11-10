@@ -74,11 +74,13 @@ class DataDosenDataTable extends DataTable
         return [
             'ID_STATUS_HENTI' => ['name' => 'ID_STATUS_HENTI', 'data' => 'ID_STATUS_HENTI'],
             'Nama' => ['name' => 'Nama', 'data' => 'Nama'],
-            'NIP' => ['name' => 'NIP', 'data' => 'NIP'],
             'ID_UNIT' => ['name' => 'ID_UNIT', 'data' => 'ID_UNIT'],
             'ID_SUB_UNIT' => ['name' => 'ID_SUB_UNIT', 'data' => 'ID_SUB_UNIT'],
             'ID_JENIS_STAF' => ['name' => 'ID_JENIS_STAF', 'data' => 'ID_JENIS_STAF'],
-            'FAKULTAS' => ['name' => 'FAKULTAS', 'data' => 'FAKULTAS']
+            'FAKULTAS' => ['name' => 'FAKULTAS', 'data' => 'FAKULTAS'],
+            'created_at' => ['name' => 'created_at', 'data' => 'created_at'],
+            'updated_at' => ['name' => 'updated_at', 'data' => 'updated_at'],
+            'deleted_at' => ['name' => 'deleted_at', 'data' => 'deleted_at']
         ];
     }
 
