@@ -22,9 +22,14 @@ class QuesionerController extends AppBaseController {
         if (strpos("@guest.uns.ac.id", $email) !== false) {
             return json_encode(['result' => false]);
         }
+        if (strpos("@student.uns.ac.id", $email) !== false) {
+            return json_encode(['result' => false]);
+        }
 
         $dataDosen = DataDosen::where("NIP", $nip)->first();
         $user = Users::where("email", $email)->first();
+        
+        
         if ($user) {
             $keterangan = json_decode($user->keterangan);
             if ($keterangan->answered == 2) {
